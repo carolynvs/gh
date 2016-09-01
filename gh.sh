@@ -27,7 +27,11 @@ then
     exit 1
 fi
 
-giturl=${giturl/git\@github\.com\:/https://github.com/}
+if [[ $giturl == *"rackspace"* ]]; then
+  giturl=${giturl/git\@github\.rackspace\.com\:/https://github.rackspace.com/}
+else
+  giturl=${giturl/git\@github\.com\:/https://github.com/}
+fi
 giturl=${giturl%\.git}
 
 if [ -z "$2" ]
